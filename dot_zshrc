@@ -1,0 +1,71 @@
+# Keep Omarchy's environment available in Zsh without depending on Bash rc files.
+[[ -r /usr/share/omarchy/default/bash/env-bootstrap ]] && source /usr/share/omarchy/default/bash/env-bootstrap
+
+export EDITOR=nvim
+export VISUAL="$EDITOR"
+export PIPENV_VENV_IN_PROJECT=1
+export GOTOOLCHAIN=auto
+typeset -U path PATH
+path=("$HOME/.local/bin" "$HOME/go/bin" $path)
+
+# History shared between terminals.
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=50000
+setopt append_history share_history hist_ignore_all_dups hist_reduce_blanks
+
+# Completion and menu selection.
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# Editing and history search.
+bindkey -e
+[[ -r /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh ]] &&
+  source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# Fish-like command suggestions. Accept the suggestion with Ctrl+Right.
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+[[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^[[1;5C' autosuggest-accept
+
+alias vim='nvim'
+alias vnvim='NVIM_APPNAME=vim nvim'
+alias lazyvim='NVIM_APPNAME=lazyvim nvim'
+alias ls='eza --icons'
+alias ll='eza -lah --icons'
+alias la='eza -a --icons'
+alias tree='eza --tree --icons -L 2'
+alias dc='docker compose'
+alias lg='lazygit'
+alias wco='wl-copy'
+alias wpa='wl-paste'
+alias pac='sudo pacman -S'
+
+command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
+command -v starship >/dev/null && eval "$(starship init zsh)"
+
+mkd() {
+  mkdir -p -- "$1" && cd -- "$1"
+}
+
+cb() {
+  if [[ -f ${1:-} ]]; then
+    local file_path
+    file_path=$(realpath -- "$1") || return
+    printf 'copy\nfile://%s' "$file_path" | wl-copy -t x-special/gnome-copied-files
+    printf 'Файл %s скопирован в буфер\n' "$1"
+  elif [[ -t 0 ]]; then
+    printf '%s' "$*" | wl-copy
+  else
+    wl-copy
+  fi
+}
+
+# Syntax highlighting must be sourced after widgets and other plugins.
+[[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

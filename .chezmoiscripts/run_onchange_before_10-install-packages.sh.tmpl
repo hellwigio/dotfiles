@@ -1,0 +1,10 @@
+#!/bin/bash
+set -euo pipefail
+
+# packages.arch checksum: {{ include "packages.arch" | sha256sum }}
+# Omarchy skips packages that are already installed and validates the result.
+mapfile -t packages < <(sed -e '/^[[:space:]]*#/d' -e '/^[[:space:]]*$/d' {{ .chezmoi.sourceDir | quote }}/packages.arch)
+
+if ((${#packages[@]})); then
+  omarchy pkg add "${packages[@]}"
+fi
