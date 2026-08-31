@@ -106,5 +106,6 @@ chezmoi add ~/.config/ghostty/config
 - Ghostty based on Omarchy's current default config, with a personal font-size override
 - Google Chrome with Omarchy's Chromium flags, policies, Copy URL integration, and theme support
 
-Herdr and Neovim are already part of Omarchy and remain managed by Omarchy,
-so this repository deliberately does not duplicate their default configs or packages.
+Herdr and the base Neovim configuration remain managed by Omarchy. This
+repository only adds personal Neovim overrides under
+`~/.config/nvim/lua/plugins/`, without duplicating the Omarchy defaults.
