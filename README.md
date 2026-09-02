@@ -103,9 +103,10 @@ chezmoi add ~/.config/ghostty/config
 ## Managed files
 
 - Zsh with Omarchy's environment, completion, autosuggestions, history search, syntax highlighting, zoxide, and Starship
-- Ghostty based on Omarchy's current default config, with a personal font-size override
+- Ghostty based on Omarchy's current default config, with personal font-size and transparency overrides
+- Herdr with a terminal-derived transparent panel background
 - Google Chrome with Omarchy's Chromium flags, policies, Copy URL integration, and theme support
 
-Herdr and the base Neovim configuration remain managed by Omarchy. This
-repository only adds personal Neovim overrides under
+The base Neovim configuration remains managed by Omarchy. This repository
+only adds personal Neovim overrides under
 `~/.config/nvim/lua/plugins/`, without duplicating the Omarchy defaults.

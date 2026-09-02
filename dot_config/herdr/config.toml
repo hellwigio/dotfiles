@@ -3,7 +3,7 @@ onboarding = false
 name = "terminal"
 
 [theme.custom]
-panel_bg = "black"
+panel_bg = "reset"
 
 [terminal]
 new_cwd = "follow"
