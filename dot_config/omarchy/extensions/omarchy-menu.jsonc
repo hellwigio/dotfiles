@@ -1,0 +1,9 @@
+{
+  "btop": {
+    "icon": "󰍛",
+    "label": "btop",
+    "description": "Activity system monitor",
+    "aliases": ["activity", "monitor", "system monitor"],
+    "action": "omarchy-launch-tui btop"
+  }
+}
