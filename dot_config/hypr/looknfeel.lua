@@ -8,6 +8,12 @@ hl.config({
     layout = "scrolling",
   },
 
+  decoration = {
+    blur = {
+      enabled = true,
+    },
+  },
+
   scrolling = {
     -- Each window occupies the full usable width of the monitor.
     column_width = 1.0,
