@@ -1,5 +1,6 @@
 bitwarden
 bitwarden-cli
+go
 zsh
 zsh-autosuggestions
 zsh-completions

@@ -106,8 +106,9 @@ chezmoi add ~/.config/ghostty/config
 - Ghostty based on Omarchy's current default config, with personal font-size and transparency overrides
 - Herdr with a terminal-derived transparent panel background
 - Google Chrome with Omarchy's Chromium flags, policies, Copy URL integration, and theme support
-- Windsurf AI code completion for Neovim through LazyVim's Codeium integration
+- Supermaven AI code completion for Neovim through LazyVim
+- Language tooling for Go, PHP (PHPantom), Python, Rust, Zig, and Lua through LazyVim
 
 The base Neovim configuration remains managed by Omarchy. This repository
-only adds personal Neovim overrides under
-`~/.config/nvim/lua/plugins/`, without duplicating the Omarchy defaults.
+adds personal Neovim overrides and manages `~/.config/nvim/lazyvim.json`
+to enable the required LazyVim extras without duplicating the Omarchy defaults.
