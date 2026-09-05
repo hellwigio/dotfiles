@@ -34,8 +34,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 bindkey '^[[1;5C' autosuggest-accept
 
 alias vim='nvim'
-alias vnvim='NVIM_APPNAME=vim nvim'
-alias lazyvim='NVIM_APPNAME=lazyvim nvim'
+# alias vnvim='NVIM_APPNAME=vim nvim'
+# alias lazyvim='NVIM_APPNAME=lazyvim nvim'
 alias ls='eza --icons'
 alias ll='eza -lah --icons'
 alias la='eza -a --icons'
@@ -44,7 +44,9 @@ alias dc='docker compose'
 alias lg='lazygit'
 alias wco='wl-copy'
 alias wpa='wl-paste'
-alias pac='sudo pacman -S'
+alias zconf='nvim ~/.zshrc && source ~/.zshrc'
+alias task='go-task'
+alias t='go-task'
 
 command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 command -v starship >/dev/null && eval "$(starship init zsh)"
