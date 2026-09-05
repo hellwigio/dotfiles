@@ -51,7 +51,14 @@ hl.config({
 
 
     -- Increase sensitivity for mouse/trackpad (default: 0).
+
+    {{ if eq .machine "hp-laptop" }}
     sensitivity = 0.1,
+
+    {{ else if eq .machine "ser" }}
+    sensitivity = -0.75,
+
+    {{ end }}
 
     -- Turn off mouse acceleration (default: adaptive).
     accel_profile = "flat",
