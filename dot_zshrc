@@ -50,6 +50,7 @@ alias t='go-task'
 
 command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 command -v starship >/dev/null && eval "$(starship init zsh)"
+command -v try >/dev/null && eval "$(command try init ~/src/tries)"
 
 mkd() {
   mkdir -p -- "$1" && cd -- "$1"
