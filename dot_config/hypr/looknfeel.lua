@@ -19,3 +19,6 @@ hl.config({
     column_width = 1.0,
   },
 })
+
+-- Hide borders on tiled windows.
+o.window({ float = false }, { border_size = 0 })

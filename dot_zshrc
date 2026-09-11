@@ -47,6 +47,7 @@ alias wpa='wl-paste'
 alias zconf='nvim ~/.zshrc && source ~/.zshrc'
 alias task='go-task'
 alias t='go-task'
+alias kub='k9s'
 
 command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 command -v starship >/dev/null && eval "$(starship init zsh)"
